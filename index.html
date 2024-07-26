@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/home_developer_cards.css">
+   
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Expense Tracker</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#register">Register</a>
+            <a href="#login">Login</a>
+            <a href="#add_expense">Add Expense</a>
+            <a href="#view_expense">View Expenses</a>
+        </nav>
+        <img id="menu-icon" src="menuIcons.jpeg" alt="Menu" tabindex="0">
+    </header>
+
+    <!-- Sections -->
+     <div  >
+       
+    <section id="home" class="home-section">
+         <!-- Introduction -->
+         <div class="introduction">
+            <h2>Introduction to Expense Tracker</h2>
+            <p>Welcome to our website. Expense Tracker helps you manage your finances effectively.</p>
+        </div>
+        <!-- Services -->
+        <div class="services">
+            <h2>Our Products and Services</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>PLP Online Courses</h3>
+                    <img src="images/online.jpeg" alt="Photo 1">
+                    <p>PLP Scholarship program</p>
+                    <a href="#" class="hover-link">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Other Scholarships</h3>
+                    <img src="images/scholarships.jpeg" alt="Photo 2">
+                    <p>Fly Abroad</p>
+                    <a href="#" class="hover-link">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Python Programming.</h3>
+                    <img src="images/python.jpeg" alt="Photo 3">
+                    <p>Learn Python</p>
+                    <a href="#" class="hover-link">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Study Online</h3>
+                    <img src="images/study.jpeg" alt="Photo 4">
+                    <p>Services</p>
+                    <a href="#" class="hover-link">Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Node.js</h3>
+                    <img src="images/nodejs.jpeg" alt="Photo 5">
+                    <p>Master Backend with Node.js</p>
+                    <a href="#" class="hover-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>
+       
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Hello, my name is <strong>Jado Fils</strong>. I am a student in the PowerLearn Project, cohort 3, studying software engineering courses. I am still learning and expected to get my certificate in four months.</p>
+        <p>PowerLearn Project is a great bootcamp. I recommend it to everyone interested in scholarships. We offer courses in<strong> databases, Python, Flutter, Entrepreneurship, Web Technology,</strong>  and more. I am also expected to pay<strong> $45</strong>  for <strong>PHP, Node.js,</strong> and <strong>React.js</strong> to become a full-stack developer.</p>
+    </section>
+
+    <section id="register">
+        <h2>Register</h2>
+        <form action="/register" name='register' method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Register</button>
+            </div>
+            <p>Already have an account? <a href="#login">Login here</a></p>
+        </form>
+    </section>
+
+    <section id="login">
+        <h2>Login</h2>
+        <form action="/login" name="login" method="post">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">Login</button>
+            </div>
+            <p>Don't have an account? <a href="#register">Register</a></p>
+        </form>
+    </section>
+
+    <section id="add_expense">
+        <h2>Add Expense</h2>
+        <form action="/add_expense" name="add_expense" method="post">
+            <div>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
+            </div>
+            <div>
+                <button type="submit">Add Expense</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="view_expense">
+        <h2>View Expenses</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example rows -->
+                <tr>
+                    <td>2024-06-22</td>
+                    <td>$100</td>
+                    <td>Groceries</td>
+                    <td>
+                        <a href="#edit">Edit</a>
+                        <a href="#delete">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2024-06-23</td>
+                    <td>$50</td>
+                    <td>Transportation</td>
+                    <td>
+                        <a href="#edit">Edit</a>
+                        <a href="#delete">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2024-06-24</td>
+                    <td>$200</td>
+                    <td>Dinner</td>
+                    <td>
+                        <a href="#edit">Edit</a>
+                        <a href="#delete">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+<div>
+    <!-- Developers -->
+    <div class="developers">
+        <h2>Our Developers</h2>
+        <div class="developer-cards">
+            <div class="developer-card">
+                <h3 class="developer-title">Php Developer</h3>
+                <img src="images/php.jpeg" alt="Developer 1">
+                <a href="#" class="hover-link">Jado Fils</a>
+            </div>
+            <div class="developer-card">
+                <h3 class="developer-title">NodeJs Developer</h3>
+                <img src="images/nodejs.jpeg" alt="Developer 2">
+                <a href="#" class="hover-link">Theophile NIYIGABA</a>
+            </div>
+            <div class="developer-card">
+                <h3 class="developer-title">Database Security</h3>
+                <img src="images/study.jpeg" alt="Developer 3">
+                <a href="#" class="hover-link">Sandra Assimwe</a>
+            </div>
+            <div class="developer-card">
+                <h3 class="developer-title">Python Developer</h3>
+                <img src="images/python.jpeg" alt="Developer 4">
+                <a href="#" class="hover-link">Aimable Karekezi</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h1>Touch On Us:</h1>
+        <div class="footer-cards">
+            <div class="footer-card">
+                <h2>Communication</h2>
+                <p>Email us at: <a href="mailto:jadofilsgeeksforgeeks@gmail.com">jadofilsgeeksforgeeks@gmail.com</a></p>
+                <p>Call us: <a href="tel:+250727210120">+250727210120</a></p>
+            </div>
+            <div class="footer-card">
+                <h2>Social Media</h2>
+                <p>Follow us on:</p>
+                <p><a href="https://www.instagram.com">Instagram</a></p>
+                <p><a href="https://github.com">GitHub</a></p>
+            </div>
+            <div class="footer-card">
+                <h2>About</h2>
+                <p><a href="#about">About Us</a></p>
+            </div>
+            <div class="footer-card">
+                <h2>Support</h2>
+                <p>For support, visit our <a href="#support">Support Page</a>.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="current-year"></span> All rights reserved.
+        </div>
+    </footer>
+
+   <script src="js/.mywebHandling.js"></script> 
+    <script src="js/toggle.js"></script>
+    <script src="js/animation.js"></script>
+
+</body>
+</html>
