@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <style>
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Initial visibility of sections */
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        /* Basic styling for icons */
+        .nav-link i {
+            margin-right: 5px;
+        }
+
+        /* Form group styling */
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        /* Input fields styling */
+        .form-group input {
+            width: 100%;
+            padding: 10px 10px 10px 40px; /* Padding left to make room for the icon */
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Icon styling */
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            left: 10px; /* Position the icon inside the input field */
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+
+        /* Floating label styling */
+        .float-label {
+            position: absolute;
+            top: 50%;
+            left: 40px; /* Adjust left position to align with the input */
+            pointer-events: none;
+            transition: 0.2s ease all;
+            color: #6c757d;
+            font-size: 16px;
+            transform: translateY(-50%);
+            background: white;
+            padding: 0 5px;
+            line-height: 1.5;
+        }
+
+        /* Floating label active state */
+        .form-group input:focus ~ .float-label,
+        .form-group input:not(:placeholder-shown) ~ .float-label {
+            top: -10px;
+            left: 10px; /* Adjust left position to align with the input */
+            font-size: 12px;
+            color: #007bff;
+            background: white;
+            transform: translateY(0);
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn i {
+            margin-right: 5px;
+        }
+
+        /* Footer card styling */
+        .footer-cards {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-card {
+            flex: 1;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Expense Tracker</h1>
+        <a href="./dashboard.html" class="nav-link"><i class="bi bi-house-door"></i>dashboard!</a>
+
+        <nav>
+            <a href="#home" class="nav-link"><i class="bi bi-house-door"></i>Home</a>
+            <a href="#register" class="nav-link"><i class="bi bi-person-plus"></i>Register</a>
+            <a href="#login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+            <a href="#add_expense" class="nav-link"><i class="bi bi-plus-circle"></i>Add Expense</a>
+            <a href="#view_expense" class="nav-link"><i class="bi bi-eye"></i>View Expenses</a>
+            <a href="#about" class="nav-link"><i class="bi bi-info-circle"></i>About Us</a>
+        </nav>
+        <img id="menu-icon" src="menuIcons.jpeg" alt="Menu" tabindex="0">
+    </header>
+
+    <!-- Sections -->
+    <section id="home" class="home-section visible">
+        <div class="introduction">
+            <h2>Introduction to Expense Tracker</h2>
+            <p>Welcome to our website. Expense Tracker helps you manage your finances effectively.</p>
+        </div>
+        <div class="services visible">
+            <h2>Our Products and Services</h2>
+            <div class="cards-container">
+                <!-- Your card elements -->
+                <div class="card">
+                    <h3>PLP Online Courses</h3>
+                    <img src="images/online.jpeg" alt="Photo 1">
+                    <p>PLP Scholarship program</p>
+                    <a href="#" class="hover-link"><i class="bi bi-info-circle"></i>Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Other Scholarships</h3>
+                    <img src="images/scholarships.jpeg" alt="Photo 2">
+                    <p>Fly Abroad</p>
+                    <a href="#" class="hover-link"><i class="bi bi-info-circle"></i>Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Python Programming</h3>
+                    <img src="images/python.jpeg" alt="Photo 3">
+                    <p>Learn Python</p>
+                    <a href="#" class="hover-link"><i class="bi bi-info-circle"></i>Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Study Online</h3>
+                    <img src="images/study.jpeg" alt="Photo 4">
+                    <p>Services</p>
+                    <a href="#" class="hover-link"><i class="bi bi-info-circle"></i>Learn More</a>
+                </div>
+                <div class="card">
+                    <h3>Node.js</h3>
+                    <img src="images/nodejs.jpeg" alt="Photo 5">
+                    <p>Master Backend with Node.js</p>
+                    <a href="#" class="hover-link"><i class="bi bi-info-circle"></i>Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="hidden">
+        <h2>About Us</h2>
+        <p>Hello, my name is <strong>Jado Fils</strong>. I am a student in the PowerLearn Project, cohort 3, studying software engineering courses...</p>
+    </section>
+
+    <section id="register" class="hidden">
+        <h2>Register</h2>
+        <form action="" name="register" id="registerForm" method="post">
+            <div class="form-group">
+                <i class="bi bi-person"></i>
+                <input type="text" id="username" name="username" placeholder=" " oninput="validateUserName();">
+                <span id="erroruser"></span>
+                <label for="username" class="float-label">Username</label>
+            </div>
+            <div class="form-group">
+                <i class="bi bi-envelope"></i>
+                <input type="email" id="email-address" name="email" placeholder=" ">
+                <span id="erroremail"></span>
+                <label for="email-address" class="float-label">Email</label>
+            </div>
+            <div class="form-group">
+                <i class="bi bi-lock"></i>
+                <input type="password" id="pass1" name="password" placeholder=" " oninput="validatePass1();">
+                <label for="pass1" class="float-label">Password</label>
+                <span id="errorpass"></span>
+            </div>
+            <div class="form-group">
+                <i class="bi bi-lock"></i>
+                <input type="password" id="password2" name="password2" placeholder=" " oninput="validatePass2();">
+                <label for="password2" class="float-label">Confirm Password</label>
+                <span id="errorpass2"></span>
+            </div>
+            <div>
+                <button type="submit" id="registerBtn" name="submit" class="btn btn-primary"><i class="bi bi-person-plus"></i>Register</button>
+            </div>
+            <p>Already have an account? <a href="#login"><i class="bi bi-box-arrow-in-right"></i>Login here</a></p>
+        </form>
+    </section>
+
+    <section id="login" class="hidden">
+        <h2>Login</h2>
+        <form action="/login" name="login" id="loginForm" method="post">
+            <div class="form-group">
+                <i class="bi bi-envelope"></i>
+                <input type="email" id="email" name="email" placeholder=" " oninput="validateEmail();">
+                <span id="erroremail"></span>
+                <label for="email" class="float-label">Email</label>
+            </div>
+            <div class="form-group">
+                <i class="bi bi-lock"></i>
+                <input type="password" id="password" name="password" placeholder=" " oninput="validatePassword();">
+                <span id="errorpassword"></span>
+                <label for="password" class="float-label">Password</label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-box-arrow-in-right"></i>Login</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="add_expense" class="hidden">
+        <h2>Add Expense</h2>
+        <form action="/add_expense" id="addExpenseForm" method="post">
+            <div class="form-group">
+                <i class="bi bi-tags"></i>
+                <input type="text" id="expenseName" name="expenseName" placeholder=" " oninput="validateExpenseName();">
+                <span id="errorexpensename"></span>
+                <label for="expenseName" class="float-label">Expense Name</label>
+            </div>
+            <div class="form-group">
+                <i class="bi bi-cash"></i>
+                <input type="number" id="expenseAmount" name="expenseAmount" placeholder=" " oninput="validateExpenseAmount();">
+                <span id="errorexpenseamount"></span>
+                <label for="expenseAmount" class="float-label">Expense Amount</label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle"></i>Add Expense</button>
+            </div>
+        </form>
+    </section>
+
+    <section id="view_expense" class="hidden">
+        <h2>View Expenses</h2>
+        <ul id="expenseList"></ul>
+    </section>
+
+    <footer>
+        <h2>Footer Section</h2>
+        <div class="footer-cards">
+            <div class="footer-card">
+                <h3>Card 1</h3>
+                <p>Content of Card 1</p>
+            </div>
+            <div class="footer-card">
+                <h3>Card 2</h3>
+                <p>Content of Card 2</p>
+            </div>
+            <div class="footer-card">
+                <h3>Card 3</h3>
+                <p>Content of Card 3</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const targetId = event.target.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    // Hide all sections except home, register, services, and footer
+                    document.querySelectorAll('section').forEach(section => {
+                        if (section.id === 'home' || section.id === 'register' || section.classList.contains('services') || section.tagName === 'FOOTER') {
+                            section.classList.add('visible');
+                            section.classList.remove('hidden');
+                        } else {
+                            section.classList.add('hidden');
+                            section.classList.remove('visible');
+                        }
+                    });
+
+                    // Show the target section
+                    if (targetSection) {
+                        targetSection.classList.add('visible');
+                        targetSection.classList.remove('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="toggle.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>
